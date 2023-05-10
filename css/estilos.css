@@ -1,0 +1,1451 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Mi Fuente";
+  src: url("../Fuente/BarlowSemiCondensed-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Mi Fuente 1";
+  src: url("../Fuente/BarlowSemiCondensed-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Mi Fuente 2";
+  src: url("../Fuente/BarlowSemiCondensed-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Mi Fuente 3";
+  src: url("../Fuente/big_noodle_titling.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  font-family: "Mi fuente", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+a,
+li,
+ul {
+  text-decoration: none;
+  list-style-type: none;
+  color: rgb(255, 255, 255);
+  letter-spacing: 1.5px;
+  padding: 0;
+}
+
+header {
+  position: absolute;
+  z-index: 200;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4em 5.5em;
+  padding-bottom: 90px;
+}
+
+.boton_reservas {
+  width: 260px;
+  height: 50px;
+  text-align: left;
+  font-size: 1.2em;
+  font-family: "Mi fuente 2", sans-serif;
+  letter-spacing: 2.5px;
+  display: block;
+  background-color: transparent;
+  border-color: rgb(250, 240, 230);
+  color: rgb(250, 240, 230);
+  padding-left: 30px;
+}
+
+.boton_reservas {
+  background-image: url(../img/restaurant-22.svg);
+  background-size: 23px;
+  background-position: center right 15%;
+  background-repeat: no-repeat;
+}
+
+.boton_reservas:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition-duration: 0.5s, 0.5s;
+}
+
+.svg {
+  width: 3em;
+  height: 3em;
+}
+
+header .button {
+  display: none;
+  background-color: transparent;
+  border: 0px;
+}
+
+header .nav {
+  width: 60%;
+  background-color: transparent;
+}
+
+header .ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 40px;
+}
+header .li {
+  font-size: 1.3em;
+}
+
+@media screen and (max-width: 960px) {
+  .logo_yoku {
+    width: 300px;
+  }
+  header .button {
+    display: block;
+    cursor: pointer;
+  }
+  header {
+    padding: 0em 0em;
+  }
+  .svg {
+    margin-top: 40px;
+    margin-left: 40px;
+  }
+  header .nav {
+    width: 100%;
+    height: 92vh;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-left: 0;
+    margin-top: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+
+  header .nav.activo {
+    display: block;
+  }
+
+  header .ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  header .li {
+    margin: 1em 0;
+    margin-left: 50px;
+  }
+
+  a,
+  li {
+    text-decoration: none;
+    list-style-type: none;
+    color: rgb(255, 255, 255);
+  }
+  .boton_reservas {
+    display: none;
+  }
+}
+
+.cabecera {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.cabecera__overlay {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    56deg,
+    rgba(0, 0, 0, 0.9612438725490196) 0%,
+    rgba(0, 0, 0, 0.6223082983193278) 70%,
+    rgba(0, 0, 0, 0.24135591736694673) 100%
+  );
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: background 1.5s;
+}
+
+.cabecera__titulo {
+  color: rgb(250, 240, 230);
+}
+
+.cabecera__video {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  object-fit: cover;
+  /* filter: grayscale(100%) contrast(110%); */
+  opacity: 0.9;
+}
+
+.cabecera:hover .cabecera__overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.simbolo_relativo {
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  position: relative;
+}
+
+.simbolo_absoluto {
+  width: 10%;
+  height: 10%;
+  position: absolute;
+  top: 1159px;
+  left: 88%;
+  z-index: 10;
+}
+.simbolo_absoluto img {
+  width: 75px;
+}
+@media screen and (max-width: 600px) {
+  .simbolo_relativo {
+    display: none;
+  }
+}
+
+.simbolo_relativo_02 {
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  position: relative;
+}
+
+.simbolo_absoluto_02 {
+  width: 100%;
+  position: absolute;
+  top: 272rem;
+  left: 0;
+  z-index: 10;
+}
+.simbolo_absoluto_02 img {
+  width: 18%;
+}
+
+@media screen and (max-width: 1700px) {
+  .simbolo_absoluto_02 {
+    width: 100%;
+    position: absolute;
+    top: 262rem;
+    left: -5rem;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .simbolo_absoluto_02 {
+    width: 100%;
+    position: absolute;
+    top: 245rem;
+    left: -5rem;
+  }
+  .simbolo_absoluto_02 img {
+    width: 20%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .simbolo_absoluto_02 {
+    width: 100%;
+    position: absolute;
+    top: 240rem;
+    left: -2rem;
+  }
+  .simbolo_absoluto_02 img {
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .simbolo_absoluto_02 {
+    width: 100%;
+    position: absolute;
+    top: 246rem;
+    left: -5rem;
+  }
+  .simbolo_absoluto_02 img {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 1150px) {
+  .simbolo_absoluto_02 img {
+    width: 27%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .simbolo_relativo_02 {
+    display: none;
+  }
+}
+
+.dos {
+  width: 100%;
+  background-color: rgb(250, 240, 230);
+  padding-top: 200px;
+  padding-bottom: 100px;
+  background-image: url(../img/Background-01.png);
+}
+
+.contenedor_dos {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 50px;
+  margin: 0 auto;
+}
+
+.texto_dos {
+  line-height: 1.2;
+  text-align: justify;
+}
+
+.nosotros01 {
+  width: 25%;
+  min-width: 250px;
+  font-family: "Mi fuente 3", sans-serif;
+  text-align: right;
+  color: rgb(239, 64, 64);
+  font-size: 2.7em;
+  display: none;
+}
+
+.titulo {
+  width: 25%;
+  height: 100%;
+  position: relative;
+}
+.texto_dos img {
+  width: 50%;
+  max-width: 120px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+.texto_dos h1 {
+  width: 100%;
+}
+
+.info {
+  width: 30%;
+  min-width: 250px;
+  font-size: 1.5em;
+  line-height: 1.6;
+  font-family: "Mi fuente", sans-serif;
+}
+
+.boton_dos_info {
+  width: 100%;
+  max-width: 250px;
+  height: 50px;
+  text-align: center;
+  font-size: 0.9em;
+  font-family: "Mi fuente", sans-serif;
+  letter-spacing: 1px;
+  margin-top: 40px;
+  border-color: transparent;
+  background-color: rgb(30, 30, 30);
+  color: rgb(250, 240, 230);
+  border-radius: 3px;
+}
+
+.boton_dos_info:hover {
+  cursor: pointer;
+}
+
+.foto_dos {
+  width: 40%;
+  height: 35em;
+}
+
+.foto02:hover {
+  filter: brightness(0.7);
+  transition: filter 0.1s;
+}
+
+.foto02 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition-duration: 0.5s, 0.5s;
+}
+
+.foto02:hover {
+  transform: scale(1.2) rotate(-5deg);
+  transition: transform 2s ease;
+}
+
+.foto_dos {
+  overflow: hidden;
+}
+.foto_tres {
+  overflow: hidden;
+}
+@media screen and (max-width: 960px) {
+  .dos {
+    padding-top: 100px;
+  }
+
+  .contenedor_dos {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0 auto;
+  }
+
+  .titulo img {
+    display: none;
+  }
+  .nosotros01 {
+    display: block;
+    font-size: 2.1em;
+  }
+
+  .titulo {
+    width: 80%;
+    font-size: 2em;
+  }
+
+  .info {
+    width: 80%;
+    font-size: 1.3;
+  }
+  .foto_dos {
+    width: 80%;
+    height: 30em;
+    margin-top: 30px;
+  }
+  .texto_dos h1 {
+    text-align: left;
+  }
+}
+
+.tarjetas {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 200px;
+  background-color: rgb(250, 240, 230);
+  background-image: url(../img/Background-01.png);
+}
+.contenedor_tarjetas {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  text-align: center;
+  /* background-color: burlywood; */
+}
+.tarjeta {
+  width: 100%;
+}
+
+.texto_tarjetas {
+  margin-top: 15px;
+}
+.texto_tarjetas h3 {
+  font-family: "Mi fuente 3", sans-serif;
+  font-size: 3.2em;
+  color: rgb(239, 64, 64);
+  margin: 0 auto;
+}
+.texto_tarjetas p {
+  width: 90%;
+  margin: 0;
+  font-size: 1.3em;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+.icono {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.tarjeta img {
+  width: 10%;
+  max-width: 150px;
+  min-width: 75px;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 960px) {
+  .contenedor_tarjetas {
+    width: 50%;
+    max-width: 1400px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    text-align: center;
+  }
+}
+
+.tres {
+  width: 100%;
+  background-color: rgb(30, 30, 30);
+  padding-top: 150px;
+  padding-bottom: 150px;
+  /* background-image: url(../img/Background-02.png); */
+  background-color: rgb(30, 30, 30);
+}
+
+.contenedor_tres {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 60px;
+  margin: 0 auto;
+  color: rgb(30, 30, 30);
+}
+
+.foto_tres {
+  width: 40%;
+  height: 45em;
+}
+.foto03 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carta {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.carta_titulo {
+  min-width: 250px;
+  font-family: "Mi fuente 3", sans-serif;
+  text-align: left;
+  color: rgb(239, 64, 64);
+  font-size: 2.6em;
+}
+
+.carta_columnas {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 50px;
+  margin: 0 auto;
+}
+.columna_tres {
+  width: 50%;
+  /* min-width: 250px; */
+  font-family: "Mi fuente 1", sans-serif;
+  color: rgb(250, 240, 230);
+}
+
+.titulo_columna {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.columna_tres h3 {
+  font-size: 1.5em;
+  font-family: "Mi fuente 2", sans-serif;
+  margin-top: 45px;
+  margin-bottom: 10px;
+}
+.columna_tres p {
+  font-size: 1.3em;
+  line-height: 1.2;
+  text-align: justify;
+}
+.boton_tres {
+  width: 100%;
+}
+.boton_tres_info {
+  width: 100%;
+  max-width: 220px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.4em;
+  font-family: "Mi fuente 2", sans-serif;
+  letter-spacing: 1px;
+  margin-top: 40px;
+  border-color: rgb(250, 240, 230);
+  background-color: transparent;
+  color: rgb(250, 240, 230);
+  border-radius: 3px;
+}
+
+.boton_tres_info:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 960px) {
+  .contenedor_tres {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 0 auto;
+  }
+  .carta {
+    width: 80%;
+    order: 2;
+  }
+  .carta_titulo {
+    font-size: 2.1em;
+  }
+  .carta_columnas {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .columna_tres {
+    width: 100%;
+    font-size: 1.3;
+  }
+  .columna_tres h3 {
+    margin-top: 30px;
+    margin-bottom: 5px;
+  }
+  .foto_tres {
+    width: 80%;
+    height: 30em;
+    order: 3;
+  }
+}
+
+.container {
+  width: 100%;
+  background-color: rgb(250, 240, 230);
+  background-image: url(../img/Background-01.png);
+  background-size: contain;
+  padding-bottom: 150px;
+  padding-top: 150px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+.slider-wrapper {
+  width: 80%;
+  /* border: red solid 2px; */
+  position: relative;
+  max-width: 55%;
+  left: 10%;
+}
+.slider {
+  display: flex;
+  aspect-ratio: 18 / 10;
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.slider img {
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+}
+.slider-nav {
+  display: flex;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+/* .slider-nav a {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.75;
+  transition: opacity ease 250ms;
+} */
+
+.slider-nav a:hover {
+  opacity: 100%;
+}
+
+.container_texto_carrusel {
+  width: 20%;
+  color: white;
+  margin: 0 auto;
+  padding-left: 20px;
+}
+
+.texto_carrusel {
+  margin-top: 30%;
+}
+.texto_carrusel h1 {
+  font-family: "Mi fuente 3";
+  font-size: 4.2em;
+  color: rgb(239, 64, 64);
+}
+
+.boton_carrusel {
+  border-color: transparent;
+  background-color: rgb(30, 30, 30);
+  color: rgb(250, 240, 230);
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 1500px) {
+  .texto_carrusel {
+    margin-top: 5%;
+  }
+  .texto_carrusel h1 {
+    font-size: 4em;
+  }
+  .container_texto_carrusel {
+    padding-left: 0;
+  }
+  .boton_carrusel {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .slider-wrapper {
+    max-width: 100%;
+    order: 5;
+  }
+  .texto_carrusel {
+    margin-top: 0;
+  }
+  .container_texto_carrusel {
+    width: 80%;
+    padding-left: 0;
+    color: white;
+    margin: 0 auto;
+    order: 1;
+  }
+  .boton_carrusel {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .texto_carrusel h1 {
+    font-size: 3.5em;
+  }
+}
+
+.cuatro_02 {
+  width: 100%;
+  height: 60%;
+  padding-bottom: 180px;
+  padding-top: 180px;
+  background-color: rgb(30, 30, 30);
+}
+
+.contenedor_cuatro_02 {
+  width: 80%;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  gap: 30px;
+  text-align: center;
+}
+
+.colum_absoluta {
+  position: relative;
+  text-align: center;
+}
+
+.absoluto {
+  width: 80%;
+  position: absolute;
+  color: rgb(250, 240, 230);
+  font-size: 1.7em;
+  z-index: 10;
+  display: block;
+  margin-left: 10%;
+  margin-top: 35%;
+}
+.absoluto h1 {
+  font-family: "Mi fuente 3", sans-serif;
+  color: rgb(239, 64, 64);
+  font-size: 5em;
+  text-align: center;
+}
+.absoluto p {
+  width: 100%;
+  font-size: 1em;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.columna img {
+  width: 100%;
+}
+
+.boton_cuatro {
+  width: 100%;
+}
+.boton_cuatro_info {
+  width: 60%;
+  max-width: 250px;
+  height: 50px;
+  text-align: center;
+  font-size: 0.8em;
+  font-family: "Mi fuente 2", sans-serif;
+  letter-spacing: 1px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 40px;
+  background-color: rgb(30, 30, 30, 0.5);
+  color: rgb(250, 240, 230);
+  border-radius: 3px;
+  border: 3px solid rgb(250, 240, 230);
+}
+
+.boton_cuatro_info:hover {
+  cursor: pointer;
+}
+
+.cover_01 {
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover_02 {
+  height: 100%;
+  object-fit: cover;
+}
+
+.columna_2 {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.cover_01 {
+  filter: brightness(0.4);
+  transition: filter 0.1s;
+}
+
+.columna_1 {
+  width: 100%;
+}
+.columna_2 {
+  width: 100%;
+}
+.cover_02:hover {
+  transform: scale(1.1);
+  transition: transform 2s ease;
+}
+.contenedor_cover_02 {
+  overflow: hidden;
+}
+.columna_cover_02 {
+  position: relative;
+}
+
+@media screen and (max-width: 960px) {
+  .cuatro_02 {
+    padding-bottom: 120px;
+    padding-top: 120px;
+  }
+  .contenedor_cuatro_02 {
+    width: 80%;
+    max-width: 1300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+
+    gap: 30px;
+    text-align: center;
+  }
+
+  .absoluto {
+    width: 80%;
+    font-size: 1.7em;
+    display: block;
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+  .absoluto h1 {
+    font-size: 3.5em;
+  }
+  .absoluto p {
+    font-size: 1em;
+  }
+  .boton_cuatro_info {
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .absoluto {
+    width: 80%;
+    font-size: 1.7em;
+    display: block;
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+  .absoluto h1 {
+    font-size: 3em;
+  }
+  .absoluto p {
+    display: none;
+  }
+  .boton_cuatro_info {
+    margin-top: 15px;
+  }
+}
+
+.cinco {
+  width: 100%;
+  height: 850px;
+  background-color: rgb(250, 240, 230);
+  background-image: url(../img/Background-01.png);
+}
+
+.contenedor_cinco {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 60px;
+  position: absolute;
+  right: 50%;
+  left: 10%;
+  z-index: 10;
+  padding-top: 100px;
+}
+
+.bloque1 {
+  width: 50%;
+  max-width: 500px;
+  min-width: 350px;
+  background-color: rgb(30, 30, 30);
+  padding: 80px 50px;
+  text-align: center;
+  color: rgb(250, 240, 230);
+}
+
+.bloque1 h1 {
+  font-family: "Mi fuente 3", sans-serif;
+  font-size: 2em;
+  letter-spacing: 1px;
+  padding-bottom: 20px;
+  color: rgb(250, 240, 230);
+}
+
+.bloque1 h3 {
+  padding-top: 40px;
+  letter-spacing: 1px;
+  line-height: 30px;
+  font-family: "Mi fuente 1", sans-serif;
+}
+.bloque1 h4 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  letter-spacing: 2.5px;
+  line-height: 20px;
+  font-family: "Mi fuente 1", sans-serif;
+}
+hr {
+  border-color: rgb(250, 240, 230);
+}
+.reservas_02 {
+  width: 100%;
+}
+.boton_reservas_02 {
+  width: 100%;
+  max-width: 200px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.1em;
+  font-family: "Mi fuente 2", sans-serif;
+  letter-spacing: 1.5px;
+  border-color: transparent;
+  background-color: rgb(250, 240, 230);
+  color: rgb(30, 30, 30);
+  border-radius: 3px;
+}
+
+.boton_reservas_02:hover {
+  cursor: pointer;
+  background-color: transparent;
+  border-color: rgb(250, 240, 230);
+  color: rgb(250, 240, 230);
+}
+
+.bloque2 {
+  width: 50%;
+  max-width: 500px;
+  color: rgb(30, 30, 30);
+  z-index: 20;
+  font-size: 1.5em;
+  text-align: right;
+}
+
+.bloque2_texto {
+  width: 100%;
+}
+
+.bloque2_texto p {
+  margin-top: 25px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.bloque2 h1 {
+  font-family: "Mi fuente 3", sans-serif;
+  color: rgb(239, 64, 64);
+  font-size: 3.5em;
+}
+
+.mapa {
+  width: 100%;
+  height: 450px;
+  top: 480px;
+  position: relative;
+}
+
+iframe {
+  width: 100%;
+  filter: grayscale(100%) contrast(110%);
+  opacity: 0.4;
+  display: block;
+}
+
+@media screen and (max-width: 960px) {
+  .cinco {
+    width: 100%;
+    height: 950px;
+  }
+  .contenedor_cinco {
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    position: absolute;
+    padding-top: 70px;
+  }
+
+  .bloque2 {
+    width: 100%;
+    color: rgb(30, 30, 30);
+    z-index: 20;
+    font-size: 1.5em;
+    text-align: left;
+  }
+
+  .mapa {
+    height: 600px;
+    top: 570px;
+  }
+  .bloque2 h1 {
+    font-size: 2.8em;
+  }
+
+  .bloque1 {
+    width: 100%;
+    min-width: 0;
+    padding: 50px 40px;
+  }
+  .bloque1 h1 {
+    font-family: "Mi fuente 3", sans-serif;
+    font-size: 2.6em;
+    letter-spacing: 1px;
+    padding-bottom: 20px;
+    color: rgb(250, 240, 230);
+  }
+
+  .bloque1 h3 {
+    padding-top: 20px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    font-family: "Mi fuente 1", sans-serif;
+    font-size: 1.2em;
+  }
+  .bloque1 h4 {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    letter-spacing: 2.5px;
+    line-height: 20px;
+    font-family: "Mi fuente 1", sans-serif;
+    font-size: 1.1em;
+  }
+}
+
+footer {
+  width: 100%;
+  padding: 70px 50px;
+  background-color: rgb(29, 29, 29);
+}
+
+.contenedor_footer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contenedor_logo {
+  width: 20%;
+  max-width: 200px;
+}
+
+.logo_yoku_footer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.nav_footer {
+  width: 50%;
+}
+.footer_redes {
+  width: 20%;
+}
+
+.ul_footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.caja_redes {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.red img {
+  width: 70%;
+  max-width: 50px;
+  min-width: 30px;
+  display: inline-block;
+}
+
+@media screen and (max-width: 960px) {
+  .contenedor_footer {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .nav_footer {
+    width: 100%;
+  }
+  footer {
+    width: 100%;
+    height: 250px;
+    padding: 50px 30px;
+    background-color: rgb(30, 30, 30);
+  }
+  .ul_footer {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .caja_redes {
+    gap: 30px;
+    margin-top: 20px;
+  }
+  .contenedor_logo {
+    width: 50%;
+  }
+}
+
+/* 
+pagina dos */
+
+a {
+  text-decoration: none;
+  list-style-type: none;
+  color: rgb(250, 240, 230);
+  letter-spacing: 1.5px;
+  padding: 0;
+}
+
+.header_02 {
+  width: 100%;
+  position: absolute;
+}
+
+.svg2 {
+  width: 2.2em;
+  height: 2.2em;
+}
+
+.header_02 .button_home {
+  background-color: transparent;
+  border: 0px;
+  color: rgb(250, 240, 230);
+  padding: 30px;
+}
+.button_home :hover {
+  cursor: pointer;
+}
+
+.reservaciones {
+  width: 100%;
+  background-color: rgb(250, 240, 230);
+  background-image: url(../img/Background-01.png);
+}
+
+.contenedor_reservas {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.foto_reservas {
+  width: 30%;
+  min-width: 450px;
+  display: block;
+  height: 100vh;
+  background-image: url(../img/Foto_reservas.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.contenedor_info_foto {
+  width: 80%;
+  max-width: 350px;
+  margin: 0 auto;
+  margin-top: 300px;
+}
+
+.logo_info_foto {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.logo_info_foto img {
+  width: 100%;
+}
+
+.texto_info_foto {
+  text-align: center;
+  color: rgb(250, 240, 230);
+  margin-top: 20px;
+  font-size: 1.1em;
+  font-family: "Mi fuente 1", sans-serif;
+}
+
+.info_reservas {
+  width: 70%;
+  max-width: 800px;
+
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  padding: 50px;
+  position: relative;
+}
+
+.simbolo_absoluto_002 {
+  display: block;
+  width: 120px;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+.simbolo_absoluto_002 img {
+  width: 100%;
+}
+
+.texto_reservas {
+  width: 100%;
+  max-width: 1200px;
+  font-size: 20px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.texto_reservas h2 {
+  font-size: 2em;
+  font-family: "Mi fuente 3", sans-serif;
+}
+
+.formulario {
+  width: 100%;
+}
+
+form {
+  width: 100%;
+}
+
+.formulario_01 {
+  width: 100%;
+}
+
+.form-control {
+  width: 100%;
+  height: 50px;
+  font-family: "Mi fuente", sans-serif;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  background-color: transparent;
+  border: solid gray 1px;
+  border-radius: 5px;
+  color: gray;
+  opacity: 0.9;
+}
+
+.formulario_02 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-control_02 {
+  width: 32%;
+  height: 50px;
+  font-family: "Mi fuente", sans-serif;
+  letter-spacing: 1px;
+  background-color: transparent;
+  border: solid gray 1px;
+  border-radius: 5px;
+  color: gray;
+  opacity: 0.9;
+}
+
+.boton_enviar {
+  width: 180px;
+  height: 40px;
+  text-align: center;
+  font-size: 1.1em;
+  font-family: "Mi fuente 2", sans-serif;
+  letter-spacing: 1.5px;
+  background-color: rgb(30, 30, 30);
+  color: white;
+  border-radius: 5px;
+}
+
+.boton_enviar:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .contenedor_reservas {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .foto_reservas {
+    min-width: 0;
+  }
+
+  .foto_reservas {
+    width: 100%;
+  }
+
+  .contenedor_info_foto {
+    width: 60%;
+    margin-top: 80px;
+  }
+  .logo_info_foto {
+    width: 180px;
+  }
+
+  .texto_info_foto {
+    font-size: 1em;
+    margin-top: 10px;
+  }
+  .simbolo_absoluto {
+    width: 90px;
+    top: 0px;
+    left: 50px;
+    display: none;
+  }
+
+  .texto_reservas {
+    padding-top: 90px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .formulario_02 {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-control_02 {
+    width: 100%;
+  }
+  .texto_info_foto {
+    display: none;
+  }
+  .contenedor_info_foto {
+    margin-top: 90px;
+  }
+}
